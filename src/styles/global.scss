@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+html, body, #root{
+  height: 100vh;
+}
+
+// creating color variables
+:root{
+  --main: #21293a;
+  --background: #2c3445;
+  --secondary: #242b3d;
+  --white: #c2c2c9;
+  --blue: #0178ef;
+  --light-blue: #54bfd3;
+}

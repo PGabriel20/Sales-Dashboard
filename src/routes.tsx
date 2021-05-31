@@ -5,9 +5,9 @@ import Landing from './pages/Landing';
 
 function Routes(){
     return(
-        <BrowserRouter>
-          <Route path="/" exact component={Landing} />
-        </BrowserRouter>
+      <BrowserRouter>
+        <Route path="/" exact component={Landing} />
+      </BrowserRouter>
     );
 }
 
