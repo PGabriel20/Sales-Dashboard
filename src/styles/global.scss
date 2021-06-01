@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 button {
@@ -10,11 +11,12 @@ button {
 
 html, body, #root{
   height: 100vh;
+  font-family: Poppins, sans-serif;
 }
 
 // creating color variables
 :root{
-  --main: #21293a;
+  --main: #142133;
   --background: #2c3445;
   --secondary: #242b3d;
   --white: #c2c2c9;

@@ -1,4 +1,45 @@
 .sideMenu{
   grid-area: aside;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   height: 100vh;
+  width: 100%;
+
+  background: var(--main);
+
+  nav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    > a{
+      display: flex;
+      position: relative;
+      justify-content: center;
+
+      height: 50px;
+      width: 100%;
+      
+      &:hover{
+        .tag{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.tag{
+  display: none;
+  position: absolute;
+  left: 0;
+
+  height: 100%;
+  width: 4px;
+  background: var(--blue);
+  transition: all .4s;
 }
