@@ -1,9 +1,13 @@
 import React from 'react';
 import { FaChartBar, FaAddressBook, FaCalendarAlt } from "react-icons/fa";
+import { format} from 'date-fns';
 
 import './styles.scss';
 
 const Aside: React.FC = () => {
+
+  var date = format(new Date(), 'dd/MM/yyyy');
+
   return (
     <aside className='sideMenu'>
       <h2>Bem vindo(a)</h2>
@@ -13,7 +17,7 @@ const Aside: React.FC = () => {
      </nav>
      <footer>
        <FaCalendarAlt />
-        <strong>24/05/2021</strong>
+        <strong>{date}</strong>
      </footer>
     </aside>
   );
