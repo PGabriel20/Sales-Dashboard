@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaChartBar, FaClipboardList, FaCalendarAlt } from "react-icons/fa";
+import { FaChartBar, FaClipboardList, FaCalendarAlt, FaUser } from "react-icons/fa";
 import { format} from 'date-fns';
 
 import './styles.scss';
@@ -10,6 +10,9 @@ const Aside: React.FC = () => {
 
   return (
     <aside className='sideMenu'>
+      <div className='imageWrapper'>
+        <FaUser />
+      </div>
       <h2>Bem vindo(a)</h2>
      <nav>
        <a href="/"><div className='tag'/>Dashboard <FaChartBar /></a>

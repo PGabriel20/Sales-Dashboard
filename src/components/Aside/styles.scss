@@ -15,8 +15,10 @@
 
   h2{
     position: absolute;
-    top: 2rem;
+    top: 8rem;
     color: var(--blue);
+    font-size: 18px;
+    font-weight: 400;
   }
 
   nav{
@@ -77,6 +79,19 @@
     }
   }
 
+}
+
+.imageWrapper{
+  position: absolute;
+  top: 1.5rem;
+
+  >svg{
+    font-size: 90px;
+    border-radius: 50%;
+    background: var(--light-blue);
+    fill: var(--main);
+    padding: 2px;
+  }
 }
 
 .tag{
