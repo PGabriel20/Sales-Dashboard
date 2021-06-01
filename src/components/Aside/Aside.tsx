@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaChartBar, FaAddressBook, FaCalendarAlt } from "react-icons/fa";
+import { FaChartBar, FaClipboardList, FaCalendarAlt } from "react-icons/fa";
 import { format} from 'date-fns';
 
 import './styles.scss';
@@ -13,7 +13,7 @@ const Aside: React.FC = () => {
       <h2>Bem vindo(a)</h2>
      <nav>
        <a href="/"><div className='tag'/>Dashboard <FaChartBar /></a>
-       <a href="/Produtos"><div className='tag'/>Cadastrar <FaAddressBook /></a>
+       <a href="/Produtos"><div className='tag'/>Cadastrar <FaClipboardList /></a>
      </nav>
      <footer>
        <FaCalendarAlt />
