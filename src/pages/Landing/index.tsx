@@ -1,11 +1,11 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import './styles.scss';
 
 const Landing: React.FC = () => {
   return (
     <div>
-      <h1>Olá mundo</h1>
+      <h1>Dashboard</h1>
     </div>
   );
 }
