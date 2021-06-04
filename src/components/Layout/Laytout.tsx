@@ -4,6 +4,7 @@ import './styles.scss';
 
 const Layout: React.FC = ({children}) => {
   return(
+    // Layout is the component where all the pages will be injectes
     <main className="layout">
       <Aside />
       <section>
