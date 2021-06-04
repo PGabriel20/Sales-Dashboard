@@ -1,5 +1,35 @@
-h1{
+.landingWrapper{
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100%;
+  max-width: 1280px;
+
+  padding: 1.4rem;
+
+  header{
+    width: 100%;
+    margin-bottom: 2rem;
+
+    > h1{
+      color: var(--gray);
+      font-weight: 500;
+    }
+  }
+}
+
+.cards{
+  display: flex;
+  gap: 1rem;
+}
+
+
+.notes{
+  width: 200px;
+  height: 120px;
+
   color: var(--gray);
-  margin: 2rem 1rem;
-  font-weight: 500;
+  font-size: 14px;
+
+  background: var(--secondary)
 }

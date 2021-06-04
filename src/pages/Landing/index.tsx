@@ -7,10 +7,18 @@ import './styles.scss';
 
 const Landing: React.FC = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <Profit />
-      <Stock />
+    <div className='landingWrapper'>
+      <header>
+        <h1>Dashboard</h1>
+      </header>
+      <div className='cards'>
+        <Profit />
+        <Stock />
+        <div className='notes'>
+          <h4>Notas</h4>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
       <SalesChart />
     </div>
   );
