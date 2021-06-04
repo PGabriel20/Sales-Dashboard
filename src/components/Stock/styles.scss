@@ -1,0 +1,33 @@
+.stockContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+
+  background: var(--secondary);
+
+  height: 120px;
+  width: 250px;
+
+  div{
+    > h4{
+      color: var(--gray);
+      font-size: 18px;
+      font-weight: 400;
+
+      margin-bottom: 0.5rem;
+    }
+
+    > strong{
+      font-family: Roboto, sans-serif;
+      font-size: 30px;
+      color: var(--alt-blue);
+    }
+  }
+
+  img{
+    height: 80px;
+    width: auto;
+  }
+}

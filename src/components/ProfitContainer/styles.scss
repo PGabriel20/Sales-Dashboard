@@ -1,0 +1,31 @@
+.profitContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary);
+  width: 250px;
+  height: 120px;
+  
+  gap: 2rem;
+
+  div{
+    > h4{
+      color: var(--gray);
+      font-size: 18px;
+      font-weight: 400;
+
+      margin-bottom: 0.5rem;
+    }
+
+    > strong{
+      font-family: Roboto, sans-serif;
+      font-size: 30px;
+      color: var(--blue);
+    }
+  }
+
+  img{
+    height: 80px;
+    width: auto;
+  }
+}
