@@ -14,14 +14,14 @@ const Aside: React.FC = () => {
         <FaUser />
       </div>
       <h2>Bem vindo(a)</h2>
-     <nav>
-       <a href="/"><div className='tag'/>Dashboard <FaChartBar /></a>
-       <a href="/Produtos"><div className='tag'/>Cadastrar <FaClipboardList /></a>
-     </nav>
-     <footer>
-       <FaCalendarAlt />
-        <strong>{date}</strong>
-     </footer>
+      <nav>
+        <a href="/"><div className='tag'/>Dashboard<FaChartBar /></a>
+        <a href="/Produtos"><div className='tag'/>Vendas<FaClipboardList /></a>
+      </nav>
+      <footer>
+          <FaCalendarAlt />
+          <strong>{date}</strong>
+      </footer>
     </aside>
   );
 }
