@@ -19,36 +19,33 @@ const SalesChart: React.FC = () => {
         label: "sales for 2021 (M)",
         data: [65, 59, 10, 81, 56, 55],
         //estilizando grafico para esse set de dados
-        borderColor: ['#2481e5'],
+        borderColor: ['#87dfee'],
+        borderWidth: 5,
+        borderRadius: 5,
         backgroundColor: ['#252b3c'],
         pointBackgroundColor: '#3333',
         pointBorderColor: ['rgba(255, 206, 86, 0.2)'],
-        borderWidth: 3,
+        pointBorderRadius: 5,
+        tension: 0.3
       },
     ]
   }
 
   const options = {
+    type: 'line',
+    responsive: false,
     title: {
       display: true,
-      text: 'Grafico de Linhas'
-    },
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-           beginAtZero: true
-          }
-        }
-      ]
-    },
-    responsive: false,
+      text: 'Chart.js Line Chart'
+    }
   }
 
   return(
-    <div>
-      Vendas por mês
-      <Line type={'line'} width={550} height={220} data = {data} options={options} />
+    <div className="container">
+      <div>
+        <h3>Sales</h3>
+      </div>
+      <Line type={options.type} width={520} height={300} data = {data} options={options} />
     </div>
   );
 }

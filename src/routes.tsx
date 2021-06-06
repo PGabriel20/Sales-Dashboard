@@ -2,13 +2,13 @@
 import React from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 import Landing from './pages/Landing';
-import Products from './pages/Products';
+import Sales from './pages/Sales';
 
 function Routes(){
     return(
       <BrowserRouter>
         <Route path="/" exact component={Landing} />
-        <Route path="/produtos" exact component={Products} />
+        <Route path="/sales" exact component={Sales} />
       </BrowserRouter>
     );
 }

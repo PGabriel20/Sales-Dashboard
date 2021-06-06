@@ -2,12 +2,12 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-const Produtos: React.FC = () => {
+const Sales: React.FC = () => {
   return (
     <div>
-      Produtos
+      Sales
     </div>
   );
 }
 
-export default Produtos;
+export default Sales;
