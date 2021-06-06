@@ -1,11 +1,17 @@
 import React from 'react';
+import SaleCard from '../../components/SaleCard/SaleCard';
 
-// import { Container } from './styles';
+import './styles.scss';
 
 const Sales: React.FC = () => {
   return (
-    <div>
-      Sales
+    <div className='salesContainer'>
+      <header>
+        <h1>Sales</h1>
+      </header>
+      <div className='salesList'>
+        <SaleCard />
+      </div>
     </div>
   );
 }
