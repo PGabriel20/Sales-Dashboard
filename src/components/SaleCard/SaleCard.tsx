@@ -13,7 +13,7 @@ const SaleCard: React.FC<SaleData> = ({item, price, date}) => {
     <div className='salesCard'>
       <div className='bar'/>
       <span>Item: {item}</span>
-      <strong>Price: {price}</strong>
+      <strong>Price: ${price}</strong>
       <strong>Date: {date}</strong>
     </div>
   );
