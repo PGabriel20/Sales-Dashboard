@@ -14,11 +14,11 @@ const Aside: React.FC = () => {
       <div className='imageWrapper'>
         <FaUser />
       </div>
-      <h2>Bem vindo(a)</h2>
+      <h2>Welcome! </h2>
       <nav>
         <a href="/"><div className='tag'/>Dashboard<FaChartBar /></a>
         <a href="/Sales"><div className='tag'/>Sales<FaClipboardList /></a>
-        <a href="/Register"><div className='tag'/>Add sales<HiDocumentAdd /></a>
+        <a href="/Register"><div className='tag'/>Add sale<HiDocumentAdd /></a>
       </nav>
       <footer>
           <FaCalendarAlt />

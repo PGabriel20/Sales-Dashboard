@@ -17,7 +17,7 @@ const SalesChart: React.FC = () => {
     datasets: [
       {
         label: "sales for 2021 (M)",
-        data: [65, 59, 10, 81, 56, 55],
+        data: [22, 35, 20, 40, 30, 35],
         //estilizando grafico para esse set de dados
         borderColor: ['#87dfee'],
         borderWidth: 5,

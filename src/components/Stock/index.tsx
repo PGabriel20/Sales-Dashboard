@@ -8,7 +8,7 @@ const StockComponent: React.FC = () => {
   return (
     <div className="stockContainer">
       <div>
-        <h4>Products</h4>
+        <h4>Sales</h4>
         <strong>{products}</strong>
       </div>
       <img src="./assets/boxes.svg" alt="boxes" />

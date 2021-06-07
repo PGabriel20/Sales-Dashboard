@@ -1,10 +1,104 @@
-.formContainer{
+.salesPageWrapper{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  padding: 1.4rem;
+}
+
+.formContainer{
+  max-width: 450px;
+  background: var(--secondary);
+  text-align: center;
+
+  >h2{
+    font-weight: 400;
+    color: var(--gray);
+    margin-top: 0.5rem;
+  }
 
   form{
+    
+    margin: 2rem;
+
     display: flex;
     flex-direction: column;
 
-    max-width: 700px;
+
+    // border: 1px solid black;
+
+    gap: 1rem;
+
+    fieldset{
+      display: flex;
+
+      gap: 0.6rem;
+      border: none;
+      >input{
+        width: 50%
+      }
+    }
+    
+    input{
+      height: 40px;
+      font-size: 16px;
+      font-family: Roboto, sans-serif;
+      color: var(--gray);
+
+      padding-left: 1rem;
+      padding-right: 0.5rem;
+
+      border: none;
+      border-radius: 20px;
+      
+      outline: none;
+      background: var(--dark-gray);
+
+    }
+    
+    ::-webkit-calendar-picker-indicator {
+      filter: invert(80%);
+    }
+
+    ::placeholder {
+      color: var(--gray);
+    }
+    
+    
+    > textarea{
+      background: var(--dark-gray);
+      border: none;
+      border-radius: 20px;
+
+      font-size: 16px;
+      font-family: Roboto, sans-serif;
+      color: var(--gray);
+
+      padding: 1rem;
+
+      outline: none;
+      resize: none;
+      // border-bottom: 2px solid var(--blue);
+
+      
+    }
+
+    > button{
+      height: 45px;
+      border-radius: 30px;
+      border: none;
+
+      background: var(--alt-blue);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+
+      transition: 0.3s all;
+
+      &:hover{
+        background-color: #2b8a7f;
+      }
+    }
   }
 }

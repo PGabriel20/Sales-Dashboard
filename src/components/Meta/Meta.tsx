@@ -9,7 +9,7 @@ const Meta: React.FC = () => {
       <strong>
         $1200,00
       </strong>
-      <p>You've reached this month's sales meta</p>
+      <p>You've reached this month's sales meta!</p>
     </div>
   );
 }
