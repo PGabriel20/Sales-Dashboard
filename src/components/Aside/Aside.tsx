@@ -18,7 +18,7 @@ const Aside: React.FC = () => {
       <nav>
         <a href="/"><div className='tag'/>Dashboard<FaChartBar /></a>
         <a href="/Sales"><div className='tag'/>Sales<FaClipboardList /></a>
-        <a href="/Sales"><div className='tag'/>Add sales<HiDocumentAdd /></a>
+        <a href="/Register"><div className='tag'/>Add sales<HiDocumentAdd /></a>
       </nav>
       <footer>
           <FaCalendarAlt />

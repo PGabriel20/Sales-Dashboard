@@ -4,7 +4,8 @@ import './styles.scss';
 
 const Layout: React.FC = ({children}) => {
   return(
-    // Layout is the component where all the pages will be injectes
+    // Layout is the component where all the components will be injected
+    //Eliminating the need of rendering the side menu component on page change
     <main className="layout">
       <Aside />
       <section>
