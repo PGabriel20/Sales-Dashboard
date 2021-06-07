@@ -2,9 +2,13 @@
   width: 100%;
   max-width: 1280px;
 
+  margin: 0 auto;
+
   padding: 1.4rem;
 
   header{
+    position: sticky;
+    
     width: 100%;
     margin-bottom: 2rem;
 
@@ -13,4 +17,10 @@
       font-weight: 500;
     }
   }
+}
+
+.salesList{
+  height: calc(100vh - 115px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }

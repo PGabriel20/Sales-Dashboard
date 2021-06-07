@@ -10,7 +10,7 @@ const Sales: React.FC = () => {
         <h1>Sales</h1>
       </header>
       <div className='salesList'>
-        <SaleCard />
+        <SaleCard item="RTX 3090" price={2900} date="06/06/2021" />
       </div>
     </div>
   );

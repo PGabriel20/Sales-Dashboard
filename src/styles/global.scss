@@ -21,7 +21,23 @@ html, body, #root{
   --secondary: #252a3d;
   --white: #f9f9f9;
   --gray: #c2c2c9;
+  --dark-gary: #485060;
   --blue: #0178ef;
   --light-blue: #54bfd3;
   --alt-blue: #2dcbb6;
+}
+
+//Styling app scrollbar
+
+*::-webkit-scrollbar{
+  width:  10px;
+}
+
+*::-webkit-scrollbar-thumb{
+  background: var(--main);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-track{
+  background: var(--dark-gary);
 }
