@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineSearch, AiOutlineRight } from "react-icons/ai";
 
 import Header from '../../components/Header/Header';
@@ -18,7 +18,6 @@ interface SalesData {
 }
 
 const Sales: React.FC = () => {
-
   const [sales, setSales] = useState([]);
   const [latest, setLatest] = useState(true);
   const [reset, setReset] = useState(false);

@@ -10,22 +10,19 @@ interface SalesData{
 
 const SalesChart: React.FC = () => {
  
+  const months = ["Jan", "Feb", "Mar", "Aprl", "May", "Jun", "Jul", "Sep", "Oct", "Nov", "Dec"]
+
+  var month = new Date().getMonth();
+
   const data ={
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Aprl",
-      "May",
-      "Jun"      
-    ],
+    labels: months.slice(0, (month+1)),
     datasets: [
       {
-        label: "sales for 2021 (M)",
-        data: [22, 35, 20, 40, 30, 35],
+        label: "Sales for 2021 (M)",
+        data: [4, 35, 20, 40, 30, 35],
         //estilizando grafico para esse set de dados
         borderColor: ['#87dfee'],
-        borderWidth: 5,
+        borderWidth: 3,
         borderRadius: 5,
         backgroundColor: ['#252b3c'],
         pointBackgroundColor: '#3333',
