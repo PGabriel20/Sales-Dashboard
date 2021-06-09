@@ -15,7 +15,7 @@ const SalesForm: React.FC = () => {
   async function handleAddSale(e: FormEvent){
     e.preventDefault();
 
-    api.post('/sale',{
+    await api.post('/sale',{
       date,
       product,
       costumer,

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import api from '../../services/api';
 
 import './styles.scss';
 
-const StockComponent: React.FC = () => {
-  const products = 12000
+interface StockData {
+  totalSales: number;
+}
 
+const StockComponent: React.FC<StockData> = ({totalSales}) => {
   return (
     <div className="stockContainer">
       <div>
         <h4>Sales</h4>
-        <strong>{products}</strong>
+        <strong>{totalSales}</strong>
       </div>
       <img src="./assets/boxes.svg" alt="boxes" />
     </div>

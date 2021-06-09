@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './styles.scss';
 
-const Profit: React.FC = () => {
-  const profit = 1234;
+interface ProfitData{
+  profit: number;
+}
+
+const Profit: React.FC<ProfitData> = ({profit}) => {
 
   return (
     <div className='profitContainer'>
       <div>
         <h4>Earnings</h4>
-        <strong>$ {profit}</strong>
+        <strong>$ {profit.toFixed(2)}</strong>
       </div>
       <img src="./assets/money-bag.svg" alt="" />
     </div>

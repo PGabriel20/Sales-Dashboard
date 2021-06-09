@@ -9,6 +9,9 @@
   gap: 2rem;
 
   div{
+    width: 100%;
+    max-width: 100px;
+
     > h4{
       color: var(--gray);
       font-size: 18px;
