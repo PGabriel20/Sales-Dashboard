@@ -47,7 +47,7 @@ const SalesChart: React.FC = () => {
       <div>
         <h3>Sales</h3>
       </div>
-      <Line type={options.type} width={620} height={300} data = {data} options={options} />
+      <Line type={options.type} width={920} height={300} data = {data} options={options} />
     </div>
   );
 }

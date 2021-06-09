@@ -1,12 +1,11 @@
 .profitContainer{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   background: var(--secondary);
-  width: 250px;
+  width: 320px;
   height: 120px;
-  
-  gap: 2rem;
+  padding: 1.5rem;
 
   div{
     width: 100%;

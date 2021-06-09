@@ -1,14 +1,14 @@
 .stockContainer{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  gap: 2rem;
-
-  background: var(--secondary);
-
+  padding: 2rem;
+  
   height: 120px;
-  width: 250px;
+  width: 320px;
+  
+  background: var(--secondary);
 
   div{
     width: 100%;
