@@ -3,6 +3,11 @@ import { Line } from "react-chartjs-2";
 
 import './styles.scss';
 
+
+interface SalesData{
+  
+}
+
 const SalesChart: React.FC = () => {
  
   const data ={
