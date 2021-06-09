@@ -44,13 +44,14 @@
       height: 40px;
       font-size: 14px;
       font-family: Roboto, sans-serif;
-      color: var(--gray);
+      color: var(--white);
 
       padding-left: 1rem;
       padding-right: 0.5rem;
 
       border: none;
-      border-radius: 20px;
+      // border-bottom: 4px solid var(--blue);
+      border-radius: 3px;
       
       outline: none;
       background: var(--dark-gray);
@@ -65,21 +66,30 @@
       color: var(--gray);
     }
     
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
     
     > textarea{
       background: var(--dark-gray);
       border: none;
-      border-radius: 20px;
+      border-radius: 3px;
 
       font-size: 14px;
       font-family: Roboto, sans-serif;
-      color: var(--gray);
+      color: var(--white);
 
       padding: 1rem;
 
       outline: none;
       resize: none;
-      // border-bottom: 2px solid var(--blue);
+      // border-bottom: 4px solid var(--blue);
     }
 
     > button{

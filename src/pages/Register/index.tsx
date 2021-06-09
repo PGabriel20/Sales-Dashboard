@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { format } from 'date-fns';
 
 import Header from '../../components/Header/Header';
 import api from '../../services/api';
@@ -8,10 +9,12 @@ import notify from '../../utils/notify';
 import './styles.scss';
 
 const SalesForm: React.FC = () => {
+  const initialDate = format(new Date(), 'yyyy-MM-dd');
+
   const [product, setProduct] = useState('');
   const [costumer, setCostomer] = useState('');
   const [price, setPrice] = useState(0);
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(initialDate);
   const [description, setDescription] = useState('');
 
   const [errors, setErrors] = useState({
@@ -27,23 +30,23 @@ const SalesForm: React.FC = () => {
 
   function validate(){
     let isValid = true;
-
-    if(product =='' || costumer =='' || price == 0|| date ==''){
+    
+    if(product ==='' || costumer ==='' || price === 0|| date ===''){
       notify('error', 'Fill all the required inputs!');
     }
-    if(product == ''){
+    if(product === ''){
       setErrors({...errors, productError: true});
       isValid = false;  
     }
-    else if(costumer ==''){
+    else if(costumer ===''){
       setErrors({...errors, costumerError: true});
       isValid = false;  
     }
-    else if(price == 0){
+    else if(price === 0){
       setErrors({...errors, priceError: true});
       isValid = false;  
     }
-    else if(date ==''){
+    else if(date === ''){
       setErrors({...errors, dateError: true});
       isValid = false;  
     }
@@ -95,7 +98,7 @@ const SalesForm: React.FC = () => {
             <input style={errors.dateError ? errorStyle:undefined} type="date" value={date} onChange={(e) => { setDate(e.target.value) }} />
           </fieldset>
           <textarea name="" value={description} onChange={(e) => { setDescription(e.target.value) }} placeholder="Description..." id="" cols={30} rows={8}></textarea>
-          <button>Register sale</button>
+          <button onClick={reset}>Register sale</button>
         </form>
       </div>
     </div>
