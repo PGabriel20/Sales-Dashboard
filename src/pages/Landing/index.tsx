@@ -42,7 +42,7 @@ const Landing: React.FC = () => {
       <div className='cards'>
         <Profit profit={totalProfit} />
         <Stock totalSales={totalSales} />
-        <Meta />
+        <Meta profit={totalProfit}/>
       </div>
       <SalesChart />
     </div>

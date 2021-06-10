@@ -33,7 +33,6 @@ const Sales: React.FC = () => {
     }).catch(err=>{
       console.log(err)
     });
-
   },[reset])
 
   useEffect(()=>{
@@ -47,6 +46,18 @@ const Sales: React.FC = () => {
       setSales(filteredArray);
     }
   },[searchText])
+
+  function filterByDate(){
+    var startDate = new Date("2021-01-01");
+    var endDate = new Date("2021-03-12");
+
+    const filtered = sales.filter((a:SalesData)=>{
+      var date = new Date(a.date);
+      return (date >= startDate && date <= endDate);
+    });
+
+    console.log(filtered)
+  }
 
   return (
     <div className='salesContainer'>
@@ -62,6 +73,9 @@ const Sales: React.FC = () => {
         </div>
         <button>
           <AiOutlineRight onClick={()=>{setLatest(!latest)}} style={latest? undefined: arrowPosition}/>
+        </button>
+        <button onClick={filterByDate}>
+          FILTRAR
         </button>
       </div>
       <div className='salesList'>

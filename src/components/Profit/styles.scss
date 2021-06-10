@@ -9,7 +9,6 @@
 
   div{
     width: 100%;
-    max-width: 100px;
 
     > h4{
       color: var(--gray);
@@ -18,11 +17,15 @@
 
       margin-bottom: 0.5rem;
     }
-
+    
     > strong{
       font-family: Roboto, sans-serif;
       font-size: 30px;
-      color: var(--blue);
+      
+      text-shadow: 0 0 11px var(--blue);
+      color: transparent;
+
+      cursor: pointer;
     }
   }
 

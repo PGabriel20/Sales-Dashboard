@@ -60,7 +60,17 @@ const SalesForm: React.FC = () => {
       priceError: false,
       dateError: false,
     }
+
     setErrors(initialState);
+    
+  }
+
+  function wipeInputs(){
+    setProduct('');
+    setPrice(0);
+    setCostomer('')
+    setDescription('');
+    setDate(initialDate);
   }
 
   async function handleAddSale(e: FormEvent){
@@ -78,6 +88,7 @@ const SalesForm: React.FC = () => {
       }).then(()=>{
         notify('success', 'Sale added successfully!');
         reset();
+        wipeInputs();
       }).catch(err=>{
         notify('error', 'Failed to add sale! '+err);
       });
