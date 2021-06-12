@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineSearch, AiOutlineRight } from "react-icons/ai";
+import CostumerCard from '../../components/CostumerCard/CostumerCard';
 
 import Header from '../../components/Header/Header';
 import SaleCard from '../../components/SaleCard/SaleCard';
@@ -8,17 +9,16 @@ import api from '../../services/api';
 
 import './styles.scss';
 
-interface SalesData {
-  _id:string;
-  product: string;
-  customer: string;
-  price: number;
-  date: string;
-  description: string;
+interface CostumerData {
+  _id: string;
+  name: string;
+  address: string;
+  telephone: string;
+  observation: string;
 }
 
 const Costumers: React.FC = () => {
-  const [sales, setSales] = useState([]);
+  const [costumers, setCostumers] = useState([]);
   const [latest, setLatest] = useState(true);
   const [reset, setReset] = useState(false);
   const [searchText, setSearchText] = useState('');
@@ -28,8 +28,8 @@ const Costumers: React.FC = () => {
   }
 
   useEffect(()=>{
-    api.get('sale').then((res)=>{
-      setSales(res.data);
+    api.get('costumer').then((res)=>{
+      setCostumers(res.data);
     }).catch(err=>{
       console.log(err)
     });
@@ -40,24 +40,12 @@ const Costumers: React.FC = () => {
       setReset(!reset)
     }
     else{
-      const filteredArray = sales.filter((sale: SalesData)=>{
-        return sale.product.toLocaleLowerCase().includes(searchText.toLocaleLowerCase());
+      const filteredArray = costumers.filter((costumer: CostumerData)=>{
+        return costumer.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase());
       })
-      setSales(filteredArray);
+      setCostumers(filteredArray);
     }
   },[searchText])
-
-  function filterByDate(){
-    var startDate = new Date("2021-01-01");
-    var endDate = new Date("2021-03-12");
-
-    const filtered = sales.filter((a:SalesData)=>{
-      var date = new Date(a.date);
-      return (date >= startDate && date <= endDate);
-    });
-
-    console.log(filtered)
-  }
 
   return (
     <div className='salesContainer'>
@@ -69,7 +57,7 @@ const Costumers: React.FC = () => {
             <AiOutlineClose onClick={()=>{setReset(!reset); setSearchText('');}}/>
           ):(
             <AiOutlineSearch />
-            )}
+          )}
         </div>
         <button>
           <AiOutlineRight onClick={()=>{setLatest(!latest)}} style={latest? undefined: arrowPosition}/>
@@ -77,17 +65,25 @@ const Costumers: React.FC = () => {
         <a href="/RegisterCostumer">Add costumer</a>
       </div>
       <div className='salesList'>
-        {sales.length > 0 ?(
+        {costumers.length > 0 ?(
           latest
-          ? sales.slice(0).reverse().map((sale: SalesData)=>{
-              return <SaleCard key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
+          ? costumers.slice(0).reverse().map((costumer: CostumerData)=>{
+              return <CostumerCard key={costumer._id} name={costumer.name}
+                address={costumer.address}
+                telephone={costumer.telephone}
+                observation={costumer.observation}
+              />
             })
-          : sales.map((sale: SalesData)=>{
-              return <SaleCard key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
+          : costumers.map((costumer: CostumerData)=>{
+              return <CostumerCard key={costumer._id} name={costumer.name}
+              address={costumer.address}
+              telephone={costumer.telephone}
+              observation={costumer.observation}
+            />
             })
         ):(
           <h4>
-            Couldn't find any sale...
+            Couldn't find any costumer...
           </h4>
         )}
       </div>
