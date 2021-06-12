@@ -8,6 +8,7 @@ import api from '../../services/api';
 import notify from '../../utils/notify';
 
 import './styles.scss';
+import { useHistory } from 'react-router-dom';
 
 const CostumerForm: React.FC = () => {
 
@@ -15,6 +16,8 @@ const CostumerForm: React.FC = () => {
   const [address, setAddress] = useState('');
   const [telephone, setTelephone] = useState('');
   const [observation, setObservation] = useState('');
+
+  const history = useHistory();
 
   const [errors, setErrors] = useState({
     nameError: false,
@@ -90,9 +93,9 @@ const CostumerForm: React.FC = () => {
     <div className='customersPageWrapper'>
       <ToastContainer />
       <Header title='Register costumers' />
-      <div className='backArrow'>
+      <div className='backArrow' onClick={()=>{history.push('/costumers')}}>
         <HiOutlineArrowNarrowLeft />
-        <a href='/costumers'>Costumers</a>
+        <span>Costumers</span>
       </div>
       <div className='formContainer'>
         <h2>Costumer info</h2>
