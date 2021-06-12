@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 import './styles.scss';
 
@@ -17,6 +18,10 @@ const SaleCard: React.FC<SaleData> = ({item, price, date, descripton}) => {
       <strong>Price: ${price}</strong>
       <strong>Date: {date}</strong>
       {descripton && <span>Description: {descripton}</span>}
+      <div className='icons'>
+        <AiFillDelete />
+        <AiFillEdit />
+      </div>
     </div>
   );
 }

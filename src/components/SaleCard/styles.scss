@@ -27,6 +27,7 @@
   strong{
     font-weight: 500;
   }
+
 }
 
 .bar{
@@ -37,4 +38,28 @@
   width: 10px;
 
   background: var(--alt-blue);
+}
+
+.icons{
+  position: absolute;
+  right: 4rem;
+  display: flex;
+  gap: 1rem;
+
+  svg{
+    font-size: 20px;
+
+    &:hover{
+      transform: scale(1.03);
+    }
+  }
+
+  svg:nth-of-type(1){
+    color: var(--error);
+  }
+
+  svg:nth-of-type(2){
+    color: var(--warning);
+  }
+ 
 }

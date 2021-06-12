@@ -30,7 +30,9 @@ const SalesChart: React.FC = () => {
     }
     getData();
 
-    getSalesByMonth();
+    setTimeout(()=>{
+      getSalesByMonth();
+    },2000)
   },[])
   
   async function getSalesByMonth(){

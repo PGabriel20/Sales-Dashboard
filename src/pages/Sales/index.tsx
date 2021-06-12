@@ -89,7 +89,7 @@ const Sales: React.FC = () => {
             })
         ):(
           <h4>
-            Could not find any sale...
+            Couldn't find any sale...
           </h4>
         )}
       </div>

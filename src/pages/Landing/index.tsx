@@ -5,6 +5,7 @@ import Profit from '../../components/Profit/Profit';
 import SalesChart from '../../components/SalesChart/SalesChart';
 import Stock from '../../components/Stock/Stock';
 import api from '../../services/api';
+import notify from '../../utils/notify';
 
 import './styles.scss';
 
@@ -32,7 +33,7 @@ const Landing: React.FC = () => {
       setTotalProfit(profit);
 
     }).catch(err=>{
-      console.log(err)
+      notify('error', 'Unable to fetch data from server!')
     })
   },[])
 
