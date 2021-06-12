@@ -42,15 +42,15 @@
 
 .icons{
   position: absolute;
-  right: 4rem;
+  right: 2rem;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 
   svg{
     font-size: 20px;
 
     &:hover{
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
   }
 

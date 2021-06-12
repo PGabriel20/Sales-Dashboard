@@ -5,6 +5,33 @@
   flex-wrap: wrap;
 
   padding: 1.4rem;
+
+  .backArrow{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    position: absolute;
+    left: 1.5rem;
+    top: 4rem;
+    
+    cursor: pointer;
+    color: var(--blue);
+
+    transition: 0.3s;
+    
+    a{
+      color: inherit;
+    }
+
+    >svg{
+      font-size: 50px;
+    }
+
+    &:hover{
+      color: var(--blue-hover)
+    }
+  }
 }
 
 .formContainer{

@@ -100,6 +100,10 @@ const SalesForm: React.FC = () => {
     <div className='salesPageWrapper'>
       <ToastContainer />
       <Header title='Register sales' />
+      <div className='backArrow'>
+        <HiOutlineArrowNarrowLeft />
+        <a href='/sales'>Sales</a>
+      </div>
       <div className='formContainer'>
         <h2>Sale info</h2>
         <form onSubmit={handleAddSale}>

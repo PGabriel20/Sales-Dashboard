@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react';
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import { ToastContainer, toast } from 'react-toastify';
-import { format } from 'date-fns';
+import { ToastContainer } from 'react-toastify';
+import InputMask from 'react-input-mask';
 
 import Header from '../../components/Header/Header';
 import api from '../../services/api';
@@ -10,19 +10,16 @@ import notify from '../../utils/notify';
 import './styles.scss';
 
 const CostumerForm: React.FC = () => {
-  const initialDate = format(new Date(), 'yyyy-MM-dd');
 
-  const [product, setProduct] = useState('');
-  const [costumer, setCostomer] = useState('');
-  const [price, setPrice] = useState(0);
-  const [date, setDate] = useState(initialDate);
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [telephone, setTelephone] = useState('');
+  const [observation, setObservation] = useState('');
 
   const [errors, setErrors] = useState({
-    productError: false,
-    costumerError: false,
-    priceError: false,
-    dateError: false,
+    nameError: false,
+    addressError: false,
+    telephoneError: false,
   });
 
   const errorStyle ={
@@ -32,23 +29,19 @@ const CostumerForm: React.FC = () => {
   function validate(){
     let isValid = true;
     
-    if(product ==='' || costumer ==='' || price === 0|| date ===''){
+    if(name ==='' || address ==='' || telephone === '' || observation ===''){
       notify('error', 'Fill all the required inputs!');
     }
-    if(product === ''){
-      setErrors({...errors, productError: true});
+    if(name === ''){
+      setErrors({...errors, nameError: true});
       isValid = false;  
     }
-    else if(costumer ===''){
-      setErrors({...errors, costumerError: true});
+    else if(telephone === ''){
+      setErrors({...errors, telephoneError: true});
       isValid = false;  
     }
-    else if(price === 0){
-      setErrors({...errors, priceError: true});
-      isValid = false;  
-    }
-    else if(date === ''){
-      setErrors({...errors, dateError: true});
+    else if(address ===''){
+      setErrors({...errors, addressError: true});
       isValid = false;  
     }
     return isValid;
@@ -56,10 +49,9 @@ const CostumerForm: React.FC = () => {
 
   function reset(){
     const initialState={
-      productError: false,
-      costumerError: false,
-      priceError: false,
-      dateError: false,
+      nameError: false,
+      addressError: false,
+      telephoneError: false,
     }
 
     setErrors(initialState);
@@ -67,11 +59,10 @@ const CostumerForm: React.FC = () => {
   }
 
   function wipeInputs(){
-    setProduct('');
-    setPrice(0);
-    setCostomer('')
-    setDescription('');
-    setDate(initialDate);
+    setName('');
+    setAddress('');
+    setTelephone('');
+    setObservation('');
   }
 
   async function handleAddSale(e: FormEvent){
@@ -80,18 +71,17 @@ const CostumerForm: React.FC = () => {
     const isValid = validate();
 
     if(isValid){
-      await api.post('/sale',{
-        date,
-        product,
-        costumer,
-        price,
-        description
+      await api.post('/costumer',{
+        name,
+        address,
+        telephone,
+        observation,
       }).then(()=>{
-        notify('success', 'Sale added successfully!');
+        notify('success', 'Costumer added successfully!');
         reset();
         wipeInputs();
       }).catch(err=>{
-        notify('error', 'Failed to add sale! '+err);
+        notify('error', 'Failed to add costumer! '+err);
       });
     }
   }
@@ -100,17 +90,20 @@ const CostumerForm: React.FC = () => {
     <div className='salesPageWrapper'>
       <ToastContainer />
       <Header title='Register costumers' />
+      <div className='backArrow'>
+        <HiOutlineArrowNarrowLeft />
+        <a href='/costumers'>Costumers</a>
+      </div>
       <div className='formContainer'>
         <h2>Costumer info</h2>
         <form onSubmit={handleAddSale}>
-          <input style={errors.productError ? errorStyle:undefined} type="text" value={product} onChange={(e) => { setProduct(e.target.value) }} placeholder="Product" />
-          <input style={errors.costumerError ? errorStyle:undefined} type="text" value={costumer} onChange={(e) => { setCostomer(e.target.value) }} placeholder="Costumer" />
+          <input style={errors.nameError ? errorStyle:undefined} type="text" value={name} onChange={(e) => { setName(e.target.value) }} placeholder="Costumer's name" />
+          <InputMask mask='(99) 99999 - 9999' style={errors.telephoneError ? errorStyle:undefined} type="text" value={telephone} onChange={(e) => { setTelephone(e.target.value) }} placeholder="Phone" />
           <fieldset>
-            <input style={errors.priceError ? errorStyle:undefined} type="number" value={price===0?'':price} onChange={(e) => { setPrice(e.target.valueAsNumber) }} placeholder="Price" />
-            <input style={errors.dateError ? errorStyle:undefined} type="date" value={date} onChange={(e) => { setDate(e.target.value) }} />
+            <input style={errors.addressError ? errorStyle:undefined} type="text" value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Address" />
           </fieldset>
-          <textarea name="" value={description} onChange={(e) => { setDescription(e.target.value) }} placeholder="Description..." id="" cols={30} rows={8}></textarea>
-          <button onClick={reset}>Register sale</button>
+          <textarea name="" value={observation} onChange={(e) => { setObservation(e.target.value) }} placeholder="Observations..." id="" cols={30} rows={8}></textarea>
+          <button onClick={reset}>Register costumer</button>
         </form>
       </div>
     </div>
