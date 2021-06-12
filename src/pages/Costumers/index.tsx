@@ -68,14 +68,14 @@ const Costumers: React.FC = () => {
         {costumers.length > 0 ?(
           latest
           ? costumers.slice(0).reverse().map((costumer: CostumerData)=>{
-              return <CostumerCard key={costumer._id} name={costumer.name}
+              return <CostumerCard _id={costumer._id} key={costumer._id} name={costumer.name}
                 address={costumer.address}
                 telephone={costumer.telephone}
                 observation={costumer.observation}
               />
             })
           : costumers.map((costumer: CostumerData)=>{
-              return <CostumerCard key={costumer._id} name={costumer.name}
+              return <CostumerCard _id={costumer._id} key={costumer._id} name={costumer.name}
               address={costumer.address}
               telephone={costumer.telephone}
               observation={costumer.observation}
