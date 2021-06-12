@@ -186,8 +186,8 @@ const SalesForm: React.FC = () => {
         <form onSubmit={_id? handleUpdateSale: handleAddSale}>
           <input style={errors.productError ? errorStyle:undefined} type="text" value={product} onChange={(e) => { setProduct(e.target.value) }} placeholder="Product" />
           {/* <input style={errors.costumerError ? errorStyle:undefined} type="text" value={costumer} onChange={(e) => { setCostumer(e.target.value) }} placeholder="Costumer" /> */}
-          <select id="costumer" value={costumer} onChange={(e) => { setCostumer(e.target.value) }}>
-            <option style={{color:'#c2c2c9'}} value="#">Choose a costumer</option>
+          <select style={errors.costumerError ? errorStyle:undefined} id="costumer" value={costumer} onChange={(e) => { setCostumer(e.target.value) }}>
+            <option style={{color:'#c2c2c9'}} value="#">Select a costumer</option>
             {costumers.map((costumer:CostumerData)=>{
               return (<option value={costumer._id}>{costumer.name}</option>)
             })}
