@@ -74,7 +74,7 @@ const Sales: React.FC = () => {
         <button>
           <AiOutlineRight onClick={()=>{setLatest(!latest)}} style={latest? undefined: arrowPosition}/>
         </button>
-        <a href="/Register">Add sale</a>
+        <a href="/RegisterSale">Add sale</a>
       </div>
       <div className='salesList'>
         {sales.length > 0 ?(

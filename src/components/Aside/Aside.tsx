@@ -20,7 +20,7 @@ const Aside: React.FC = () => {
         <a href="/Sales"><div className='tag'/>Sales<FaClipboardList /></a>
         {/* <a href="/Register"><div className='tag'/>Add sale<HiDocumentAdd /></a> */}
         <a href="/Costumers"><div className='tag'/>Costumers<HiUsers /></a>
-        <a href="/Costumers"><div className='tag'/>Add costumer<HiUserAdd /></a>
+        {/* <a href="/Costumers"><div className='tag'/>Add costumer<HiUserAdd /></a> */}
       </nav>
       <footer>
           <FaCalendarAlt />
