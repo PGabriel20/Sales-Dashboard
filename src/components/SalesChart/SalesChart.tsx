@@ -159,7 +159,7 @@ const SalesChart: React.FC = () => {
   }
 
   return(
-    <div className="container">
+    <div className="chartContainer">
       <div>
         <h3 onClick={getSalesByMonth}>Sales</h3>
       </div>
