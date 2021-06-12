@@ -17,12 +17,14 @@ const SaleCard: React.FC<SaleData> = ({_id, item, price, date, descripton}) => {
 
   const {
     setIsOpen,
-    setId
+    setId,
+    setType
   } = useContext(ModalContext)
 
-  function handleModalData(_id: string, isOpen: boolean){
+  function handleModalData(_id: string, isOpen: boolean, type: string){
     setIsOpen(isOpen);
     setId(_id);
+    setType(type)
   }
 
   return (
@@ -33,7 +35,7 @@ const SaleCard: React.FC<SaleData> = ({_id, item, price, date, descripton}) => {
       <strong>Date: {date}</strong>
       {descripton && <span>Description: {descripton}</span>}
       <div className='icons'>
-        <a href="#"><AiFillDelete className='deleteSale' onClick={()=>{handleModalData(_id, true)}}/></a>
+        <a href="#"><AiFillDelete className='deleteSale' onClick={()=>{handleModalData(_id, true, 'sales')}}/></a>
         <a href={`/RegisterSale/${_id}`}><AiFillEdit className='editSale'/></a>
       </div>
     </div>
