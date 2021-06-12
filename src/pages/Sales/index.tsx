@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 import React, { useContext, useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { AiOutlineClose, AiOutlineSearch, AiOutlineRight } from "react-icons/ai";
 
 import Header from '../../components/Header/Header';
@@ -7,6 +8,7 @@ import Modal from '../../components/Modal/Modal';
 import SaleCard from '../../components/SaleCard/SaleCard';
 import { ModalContext } from '../../contexts/ModalContext';
 import api from '../../services/api';
+import notify from '../../utils/notify';
 
 import './styles.scss';
 
@@ -27,7 +29,8 @@ const Sales: React.FC = () => {
 
   //Accessing variables from context
   const {
-    isOpen
+    isOpen,
+    deleted, setDeleted
   } = useContext(ModalContext)
 
   const arrowPosition = {
@@ -54,9 +57,19 @@ const Sales: React.FC = () => {
     }
   },[searchText])
 
+  // this will monitor if a sale was removed and then notify
+  useEffect(()=>{
+    if(deleted===true){
+      notify('success', 'Sale deleted successfully!');
+      setDeleted(false);
+      setReset(!reset);
+    }
+  },[deleted])
+
   return (
     <div className='salesContainer'>
       <Header title="Sales"/>
+      <ToastContainer />
       <div className='filters'>
         <div>
           <input value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} placeholder='Search by item name' type="text" />

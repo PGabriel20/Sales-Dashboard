@@ -1,6 +1,6 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { format } from 'date-fns';
 
 import Header from '../../components/Header/Header';
