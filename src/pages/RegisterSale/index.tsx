@@ -102,10 +102,6 @@ const SalesForm: React.FC = () => {
       setErrors({...errors, priceError: true});
       isValid = false;  
     }
-    else if(date === ''){
-      setErrors({...errors, dateError: true});
-      isValid = false;  
-    }
     return isValid;
   }
 
