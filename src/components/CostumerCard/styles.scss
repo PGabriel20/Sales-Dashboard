@@ -45,21 +45,22 @@
   right: 2rem;
   display: flex;
   gap: 1.5rem;
-
-  svg{
-    font-size: 20px;
-
-    &:hover{
-      transform: scale(1.04);
+  
+  a{
+    svg{
+      font-size: 20px;
+  
+      &:hover{
+        transform: scale(1.04);
+      }
     }
   }
-
-  svg:nth-of-type(1){
+  
+  .deleteSale{
     color: var(--error);
   }
 
-  svg:nth-of-type(2){
+  .editSale{
     color: var(--warning);
   }
- 
 }

@@ -19,8 +19,8 @@ const CostumerCard: React.FC<CostumerData> = ({name, telephone, address, observa
       <strong>Address: {address}</strong>
       {observation && <span>Observations: {observation}</span>}
       <div className='icons'>
-        <AiFillDelete />
-        <AiFillEdit />
+        <a href="" ><AiFillDelete className='deleteSale'/></a>
+        <a href=""><AiFillEdit className='editSale'/></a>
       </div>
     </div>
   );
