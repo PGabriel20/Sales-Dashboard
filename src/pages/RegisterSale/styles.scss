@@ -67,6 +67,22 @@
       }
     }
     
+    select{
+      height: 40px;
+      font-size: 14px;
+      font-family: Roboto, sans-serif;
+
+      padding-left: 1rem;
+      padding-right: 0.5rem;
+
+      color: var(--white);
+      outline: none;
+      background: var(--dark-gray);
+
+      border: none;
+      border-radius: 2px;
+    }
+
     input{
       height: 40px;
       font-size: 14px;

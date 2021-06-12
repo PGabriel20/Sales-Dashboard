@@ -11,7 +11,7 @@ import './styles.scss';
 interface SalesData {
   _id:string;
   product: string;
-  customer: string;
+  costumer: string;
   price: number;
   date: string;
   description: string;

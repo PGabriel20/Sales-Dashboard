@@ -11,6 +11,23 @@ import './styles.scss';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
+interface CostumerData {
+  _id: string;
+  name: string;
+  address: string;
+  telephone: string;
+  observation: string;
+}
+
+interface SalesData {
+  _id:string;
+  product: string;
+  costumer: string;
+  price: number;
+  date: string;
+  description: string;
+}
+
 const SalesForm: React.FC = () => {
   const initialDate = format(new Date(), 'yyyy-MM-dd');
 
@@ -18,6 +35,8 @@ const SalesForm: React.FC = () => {
   const [costumer, setCostumer] = useState('');
   const [price, setPrice] = useState(0);
   const [date, setDate] = useState(initialDate);
+  const [costumers, setCostumers] = useState([]);
+
   const [description, setDescription] = useState('');
 
   const history = useHistory();
@@ -27,21 +46,29 @@ const SalesForm: React.FC = () => {
 
   //If there is an id being passed, then this page will be
   //meant to edit the sale
+  //The useEffect hook is responsible for checking for the id
   useEffect(()=>{
     if(_id){
       api.get(`sale/${_id}`).then((res)=>{
-        const data = res.data;
+        const data:SalesData = res.data;
         setProduct(data.product);
         setCostumer(data.costumer);
         setPrice(data.price);
         const oldDate = format(new Date(data.date), 'yyyy-MM-dd');
         setDate(oldDate);
         setDescription(data.description);
-        console.log(product)
       }).catch(err=>{
-        console.log(err)
+        notify('error', `Failed to fetch single sale: ${err}`);
       })
     }
+  },[])
+  
+  useEffect(()=>{
+    api.get('costumer').then((res)=>{
+      setCostumers(res.data)
+    }).catch(err=>{
+      notify('error', `Failed to fetch costumers: ${err}`);
+    })
   },[])
 
   const [errors, setErrors] = useState({
@@ -54,6 +81,8 @@ const SalesForm: React.FC = () => {
   const errorStyle ={
     border: "1px solid #DC3545",
   }
+
+  // Form Validation method
 
   function validate(){
     let isValid = true;
@@ -80,6 +109,7 @@ const SalesForm: React.FC = () => {
     return isValid;
   }
 
+  // Methods triggered after update/create
   function reset(){
     const initialState={
       productError: false,
@@ -155,7 +185,13 @@ const SalesForm: React.FC = () => {
         <h2>Sale info</h2>
         <form onSubmit={_id? handleUpdateSale: handleAddSale}>
           <input style={errors.productError ? errorStyle:undefined} type="text" value={product} onChange={(e) => { setProduct(e.target.value) }} placeholder="Product" />
-          <input style={errors.costumerError ? errorStyle:undefined} type="text" value={costumer} onChange={(e) => { setCostumer(e.target.value) }} placeholder="Costumer" />
+          {/* <input style={errors.costumerError ? errorStyle:undefined} type="text" value={costumer} onChange={(e) => { setCostumer(e.target.value) }} placeholder="Costumer" /> */}
+          <select id="costumer" value={costumer} onChange={(e) => { setCostumer(e.target.value) }}>
+            <option style={{color:'#c2c2c9'}} value="#">Choose a costumer</option>
+            {costumers.map((costumer:CostumerData)=>{
+              return (<option value={costumer._id}>{costumer.name}</option>)
+            })}
+          </select>
           <fieldset>
             <input style={errors.priceError ? errorStyle:undefined} type="number" value={price===0?'':price} onChange={(e) => { setPrice(e.target.valueAsNumber) }} placeholder="Price" />
             <input style={errors.dateError ? errorStyle:undefined} type="date" value={date} onChange={(e) => { setDate(e.target.value) }} />
