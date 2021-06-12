@@ -12,7 +12,7 @@
 }
 
 
-.container{
+.modalContainer{
   width: 400px;
   max-width: 800px;
   padding: 1rem;
@@ -50,10 +50,11 @@
     }
   }
 
-  section{
+  .buttons{
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    height: fit-content;
 
 
     button{

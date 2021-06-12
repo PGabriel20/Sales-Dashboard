@@ -4,7 +4,7 @@ import { FaRegTrashAlt, FaTimes } from "react-icons/fa";
 import { ModalContext } from '../../contexts/ModalContext';
 import api from '../../services/api';
 
-import './styles.scss'
+import './styles.scss';
 
 const Modal:React.FC = () => {
 
@@ -35,15 +35,13 @@ const Modal:React.FC = () => {
 
   return(
     <div className='overlay'>
-      <div className='container'>
-        <FaTimes />
+      <div className='modalContainer'>
         <header>
           <FaRegTrashAlt />
-          {}
           <span>Are you sure you want to delete the {type==='sales'?'sale':'Customer'}?</span>
           {type==='sales'?<p>This will affect the chart!</p>:undefined}
         </header>
-        <section>
+        <section className='buttons'>
           <button onClick={()=>{setIsOpen(false)}}>Cancel</button>
           <button onClick={handleDelete}>Confirm</button>
         </section>
