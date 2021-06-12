@@ -87,7 +87,7 @@ const CostumerForm: React.FC = () => {
   }
 
   return (
-    <div className='salesPageWrapper'>
+    <div className='customersPageWrapper'>
       <ToastContainer />
       <Header title='Register costumers' />
       <div className='backArrow'>

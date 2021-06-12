@@ -48,7 +48,7 @@ const Costumers: React.FC = () => {
   },[searchText])
 
   return (
-    <div className='salesContainer'>
+    <div className='costumersContainer'>
       <Header title="Costumers"/>
       <div className='filters'>
         <div>
@@ -64,7 +64,7 @@ const Costumers: React.FC = () => {
         </button>
         <a href="/RegisterCostumer">Add costumer</a>
       </div>
-      <div className='salesList'>
+      <div className='costumersList'>
         {costumers.length > 0 ?(
           latest
           ? costumers.slice(0).reverse().map((costumer: CostumerData)=>{
