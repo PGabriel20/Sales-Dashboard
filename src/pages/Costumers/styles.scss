@@ -85,4 +85,14 @@
     }
 
   }
+
+  a{
+    color: var(--blue);
+    transition: 0.2s all;
+    font-size: 18px;
+
+    &:hover{
+      color: #025fbd;
+    }
+  }
 }

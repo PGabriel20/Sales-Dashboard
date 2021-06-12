@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaChartBar, FaClipboardList, FaCalendarAlt, FaUser } from "react-icons/fa";
-import { HiDocumentAdd } from "react-icons/hi";
+import { HiDocumentAdd, HiUsers, HiUserAdd } from "react-icons/hi";
 import { format} from 'date-fns';
 
 import './styles.scss';
@@ -18,7 +18,9 @@ const Aside: React.FC = () => {
       <nav>
         <a href="/"><div className='tag'/>Dashboard<FaChartBar /></a>
         <a href="/Sales"><div className='tag'/>Sales<FaClipboardList /></a>
-        <a href="/Register"><div className='tag'/>Add sale<HiDocumentAdd /></a>
+        {/* <a href="/Register"><div className='tag'/>Add sale<HiDocumentAdd /></a> */}
+        <a href="/Costumers"><div className='tag'/>Costumers<HiUsers /></a>
+        <a href="/Costumers"><div className='tag'/>Add costumer<HiUserAdd /></a>
       </nav>
       <footer>
           <FaCalendarAlt />

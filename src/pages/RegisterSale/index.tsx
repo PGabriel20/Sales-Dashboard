@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react';
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { ToastContainer, toast } from 'react-toastify';
 import { format } from 'date-fns';
 
@@ -98,7 +99,7 @@ const SalesForm: React.FC = () => {
   return (
     <div className='salesPageWrapper'>
       <ToastContainer />
-      <Header title='Register sales'/>
+      <Header title='Register sales' />
       <div className='formContainer'>
         <h2>Sale info</h2>
         <form onSubmit={handleAddSale}>

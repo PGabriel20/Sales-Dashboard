@@ -64,7 +64,7 @@ const Costumers: React.FC = () => {
       <Header title="Costumers"/>
       <div className='filters'>
         <div>
-          <input value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} placeholder='Search by item name' type="text" />
+          <input value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} placeholder='Search by costumer name' type="text" />
           { searchText!== '' ? (
             <AiOutlineClose onClick={()=>{setReset(!reset); setSearchText('');}}/>
           ):(
@@ -74,9 +74,7 @@ const Costumers: React.FC = () => {
         <button>
           <AiOutlineRight onClick={()=>{setLatest(!latest)}} style={latest? undefined: arrowPosition}/>
         </button>
-        <button onClick={filterByDate}>
-          FILTRAR
-        </button>
+        <a href="/Register">Add costumer</a>
       </div>
       <div className='salesList'>
         {sales.length > 0 ?(
