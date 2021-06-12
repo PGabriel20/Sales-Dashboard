@@ -38,7 +38,7 @@ const Modal:React.FC = () => {
       <div className='modalContainer'>
         <header>
           <FaRegTrashAlt />
-          <span>Are you sure you want to delete the {type==='sales'?'sale':'Customer'}?</span>
+          <span>Are you sure you want to delete the {type==='sales'?'sale':'customer'}?</span>
           {type==='sales'?<p>This will affect the chart!</p>:undefined}
         </header>
         <section className='buttons'>

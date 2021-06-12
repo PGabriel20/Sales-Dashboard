@@ -1,11 +1,15 @@
 import { format } from 'date-fns';
 import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineSearch, AiOutlineRight } from "react-icons/ai";
+import { ToastContainer } from 'react-toastify';
 import CostumerCard from '../../components/CostumerCard/CostumerCard';
 
 import Header from '../../components/Header/Header';
+import Modal from '../../components/Modal/Modal';
 import SaleCard from '../../components/SaleCard/SaleCard';
+import { ModalContext } from '../../contexts/ModalContext';
 import api from '../../services/api';
+import notify from '../../utils/notify';
 
 import './styles.scss';
 
@@ -22,6 +26,11 @@ const Costumers: React.FC = () => {
   const [latest, setLatest] = useState(true);
   const [reset, setReset] = useState(false);
   const [searchText, setSearchText] = useState('');
+
+  const {
+    isOpen,
+    deleted, setDeleted
+  } = useContext(ModalContext)
 
   const arrowPosition = {
     transform: 'rotate(-90deg)'
@@ -47,9 +56,18 @@ const Costumers: React.FC = () => {
     }
   },[searchText])
 
+  useEffect(()=>{
+    if(deleted===true){
+      notify('success', 'Customer deleted successfully!');
+      setDeleted(false);
+      setReset(!reset);
+    }
+  },[deleted])
+
   return (
     <div className='costumersContainer'>
       <Header title="Costumers"/>
+      <ToastContainer />
       <div className='filters'>
         <div>
           <input value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} placeholder='Search by costumer name' type="text" />
@@ -86,6 +104,7 @@ const Costumers: React.FC = () => {
             Couldn't find any costumer...
           </h4>
         )}
+        {isOpen && <Modal/>}
       </div>
     </div>
   );
