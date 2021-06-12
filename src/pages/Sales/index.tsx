@@ -47,18 +47,6 @@ const Sales: React.FC = () => {
     }
   },[searchText])
 
-  function filterByDate(){
-    var startDate = new Date("2021-01-01");
-    var endDate = new Date("2021-03-12");
-
-    const filtered = sales.filter((a:SalesData)=>{
-      var date = new Date(a.date);
-      return (date >= startDate && date <= endDate);
-    });
-
-    console.log(filtered)
-  }
-
   return (
     <div className='salesContainer'>
       <Header title="Sales"/>
@@ -80,10 +68,10 @@ const Sales: React.FC = () => {
         {sales.length > 0 ?(
           latest
           ? sales.slice(0).reverse().map((sale: SalesData)=>{
-              return <SaleCard key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
+              return <SaleCard _id={sale._id} key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
             })
           : sales.map((sale: SalesData)=>{
-              return <SaleCard key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
+              return <SaleCard _id={sale._id} key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
             })
         ):(
           <h4>

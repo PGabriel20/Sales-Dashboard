@@ -9,6 +9,7 @@ import notify from '../../utils/notify';
 
 import './styles.scss';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 const SalesForm: React.FC = () => {
   const initialDate = format(new Date(), 'yyyy-MM-dd');
@@ -18,6 +19,8 @@ const SalesForm: React.FC = () => {
   const [price, setPrice] = useState(0);
   const [date, setDate] = useState(initialDate);
   const [description, setDescription] = useState('');
+
+  const history = useHistory();
 
   //Getting id passed as a param to this route
   let {_id}:any = useParams();
@@ -144,9 +147,9 @@ const SalesForm: React.FC = () => {
     <div className='salesPageWrapper'>
       <ToastContainer />
       <Header title={_id?'Edit Sale': 'Register Sale'} />
-      <div className='backArrow'>
-        <HiOutlineArrowNarrowLeft />
-        <a href='/sales'>Sales</a>
+      <div className='backArrow' onClick={()=>{history.push('/sales')}}>
+        <HiOutlineArrowNarrowLeft/>
+        <span>Sales</span>
       </div>
       <div className='formContainer'>
         <h2>Sale info</h2>

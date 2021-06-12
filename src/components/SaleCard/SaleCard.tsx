@@ -4,13 +4,14 @@ import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import './styles.scss';
 
 interface SaleData{
+  _id: string;
   item: string;
   price: number;
   date: string;
   descripton?: string;
 }
 
-const SaleCard: React.FC<SaleData> = ({item, price, date, descripton}) => {
+const SaleCard: React.FC<SaleData> = ({_id, item, price, date, descripton}) => {
   return (
     <div className='salesCard'>
       <div className='bar'/>
@@ -19,8 +20,8 @@ const SaleCard: React.FC<SaleData> = ({item, price, date, descripton}) => {
       <strong>Date: {date}</strong>
       {descripton && <span>Description: {descripton}</span>}
       <div className='icons'>
-        <a href="" ><AiFillDelete className='deleteSale'/></a>
-        <a href=""><AiFillEdit className='editSale'/></a>
+        <a href="#"><AiFillDelete className='deleteSale'/></a>
+        <a href={`/RegisterSale/${_id}`}><AiFillEdit className='editSale'/></a>
       </div>
     </div>
   );
