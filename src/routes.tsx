@@ -12,6 +12,7 @@ function Routes(){
       <BrowserRouter>
         <Route path="/" exact component={Landing} />
         <Route path="/sales" exact component={Sales} />
+        <Route path="/registersale/:_id" exact component={SalesForm} />
         <Route path="/registersale" exact component={SalesForm} />
         <Route path="/costumers" exact component={Costumer} />
         <Route path="/registercostumer" exact component={CostumerForm} />

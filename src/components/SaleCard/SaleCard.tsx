@@ -19,6 +19,7 @@ const SaleCard: React.FC<SaleData> = ({item, price, date, descripton}) => {
       <strong>Date: {date}</strong>
       {descripton && <span>Description: {descripton}</span>}
       <div className='icons'>
+        <a href="/RegisterSale/123">TESTE</a>
         <AiFillDelete />
         <AiFillEdit />
       </div>
