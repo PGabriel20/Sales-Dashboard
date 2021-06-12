@@ -1,4 +1,5 @@
 import React from 'react';
+import { ModalProvider } from '../../contexts/ModalContext';
 import Aside from '../Aside/Aside';
 import './styles.scss';
 
@@ -9,7 +10,9 @@ const Layout: React.FC = ({children}) => {
     <main className="layout">
       <Aside />
       <section>
-        {children}
+        <ModalProvider>
+          {children}
+        </ModalProvider>
       </section>
     </main>
   );

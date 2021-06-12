@@ -3,7 +3,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineSearch, AiOutlineRight } from "react-icons/ai";
 
 import Header from '../../components/Header/Header';
+import Modal from '../../components/Modal/Modal';
 import SaleCard from '../../components/SaleCard/SaleCard';
+import { ModalContext } from '../../contexts/ModalContext';
 import api from '../../services/api';
 
 import './styles.scss';
@@ -22,6 +24,11 @@ const Sales: React.FC = () => {
   const [latest, setLatest] = useState(true);
   const [reset, setReset] = useState(false);
   const [searchText, setSearchText] = useState('');
+
+  //Accessing variables from context
+  const {
+    isOpen
+  } = useContext(ModalContext)
 
   const arrowPosition = {
     transform: 'rotate(-90deg)'
@@ -78,6 +85,7 @@ const Sales: React.FC = () => {
             Couldn't find any sale...
           </h4>
         )}
+        {isOpen && <Modal/>}
       </div>
     </div>
   );
