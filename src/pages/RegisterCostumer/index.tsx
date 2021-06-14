@@ -127,7 +127,6 @@ const CostumerForm: React.FC = () => {
       }).then(()=>{
         notify('success', 'Costumer edited successfully!');
         reset();
-        wipeInputs();
       }).catch(err=>{
         notify('error', 'Failed to add costumer! '+err);
       });
