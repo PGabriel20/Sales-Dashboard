@@ -119,13 +119,13 @@ const CostumerForm: React.FC = () => {
     const isValid = validate();
 
     if(isValid){
-      await api.post('/costumer',{
+      await api.put(`costumer/${_id}`,{
         name,
         address,
         telephone,
         observation,
       }).then(()=>{
-        notify('success', 'Costumer added successfully!');
+        notify('success', 'Costumer edited successfully!');
         reset();
         wipeInputs();
       }).catch(err=>{
