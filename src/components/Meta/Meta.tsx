@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { AiTwotoneEdit } from "react-icons/ai";
+import { ModalContext } from '../../contexts/ModalContext';
 
 import './styles.scss';
 
@@ -11,6 +13,10 @@ const Meta: React.FC<MetaData> = ({profit}) => {
   const [meta, setMeta] = useState(900);
   const [reached, setReached] = useState(false);
   const [metaTimer, setMetaTimer] = useState(false);
+
+  const {
+    setNewMeta
+  } = useContext(ModalContext);
 
   const metaStyle={
     color: '#ffc107'
@@ -37,8 +43,8 @@ const Meta: React.FC<MetaData> = ({profit}) => {
       <strong style={reached? undefined:metaStyle}>
         $ {Number(meta).toFixed(2)}
       </strong>
-     { reached && <p>You've reached this month's sales meta!</p>}
-      <AiTwotoneEdit onClick={newMeta} />
+      { reached && <p>You've reached this month's sales meta!</p> }
+      <AiTwotoneEdit onClick={()=>{setNewMeta(true)}} />
     </div>
   );
 }

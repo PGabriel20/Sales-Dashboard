@@ -42,8 +42,8 @@ const Modal:React.FC = () => {
           {type==='sales'?<p>This will affect the chart!</p>:undefined}
         </header>
         <section className='buttons'>
-          <button onClick={()=>{setIsOpen(false)}}>Cancel</button>
           <button onClick={handleDelete}>Confirm</button>
+          <button onClick={()=>{setIsOpen(false)}}>Cancel</button>
         </section>
       </div>
     </div>
