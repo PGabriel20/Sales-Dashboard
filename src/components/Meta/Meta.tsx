@@ -28,22 +28,24 @@ const Meta: React.FC<MetaData> = ({profit}) => {
 
   useEffect(()=>{
     const savedMeta = localStorage.getItem('meta');
+    console.log(reached);
     if(savedMeta){
       setLocalMeta(true);
       setMeta(Number(savedMeta));
-      console.log(savedMeta)
+      
+      if(profit > Number(savedMeta)){
+        setReached(true);
+      }
+      else{
+        setReached(false);
+      }
     }
     else{
       setLocalMeta(false);
+      setReached(false);
+      // Check if meta has been reached
     }
 
-    // Check if meta has been reached
-    if(profit > Number(savedMeta)){
-      setReached(true);
-    }
-    else{
-      setReached(false);
-    }
 
     if(createdMeta){
       notify('success', 'New meta created successfully!');
@@ -68,7 +70,7 @@ const Meta: React.FC<MetaData> = ({profit}) => {
           </div>
         )}
       </strong>
-      { reached && <p>You've reached this month's sales meta!</p> }
+      { reached? <p>You've reached this month's sales meta!</p> :''}
       {localMeta && <AiTwotoneEdit onClick={()=>{setNewMeta(true)}} />}
       <ToastContainer />
     </div>
