@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import Header from '../../components/Header/Header';
 import Meta from '../../components/Meta/Meta';
+import MetaModal from '../../components/MetaModal/MetaModal';
 import Profit from '../../components/Profit/Profit';
 import SalesChart from '../../components/SalesChart/SalesChart';
 import Stock from '../../components/Stock/Stock';
@@ -52,7 +53,7 @@ const Landing: React.FC = () => {
         <Meta profit={totalProfit}/>
       </div>
       <SalesChart />
-      { newMeta && <h4>Ola eu sou um modal de meta</h4> }
+      { newMeta && <MetaModal/> }
     </div>
   );
 }
