@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AiTwotoneEdit } from "react-icons/ai";
+import { ToastContainer } from 'react-toastify';
 import { ModalContext } from '../../contexts/ModalContext';
+import notify from '../../utils/notify';
 
 import './styles.scss';
 
@@ -10,12 +12,14 @@ interface MetaData{
 }
 
 const Meta: React.FC<MetaData> = ({profit}) => {
-  const [meta, setMeta] = useState(900);
+  const [meta, setMeta] = useState(0);
   const [reached, setReached] = useState(false);
   const [metaTimer, setMetaTimer] = useState(false);
+  const [localMeta, setLocalMeta] = useState(false);
 
   const {
-    setNewMeta
+    setNewMeta,
+    setCreatedMeta, createdMeta
   } = useContext(ModalContext);
 
   const metaStyle={
@@ -24,27 +28,49 @@ const Meta: React.FC<MetaData> = ({profit}) => {
 
   useEffect(()=>{
     const savedMeta = localStorage.getItem('meta');
+    if(savedMeta){
+      setLocalMeta(true);
+      setMeta(Number(savedMeta));
+      console.log(savedMeta)
+    }
+    else{
+      setLocalMeta(false);
+    }
+
+    // Check if meta has been reached
     if(profit > Number(savedMeta)){
       setReached(true);
     }
-  },[metaTimer])
+    else{
+      setReached(false);
+    }
+
+    if(createdMeta){
+      notify('success', 'New meta created successfully!');
+      setCreatedMeta(false);
+    }
+  },[metaTimer, createdMeta])
 
   setInterval(()=>{
     setMetaTimer(!metaTimer)
   },3000)
 
-  function newMeta(){
-    localStorage.setItem('meta', meta.toString())
-  }
-
   return (
     <div className='meta'>
       <h4>Meta</h4>
       <strong style={reached? undefined:metaStyle}>
-        $ {Number(meta).toFixed(2)}
+        {localMeta ?
+        (<p>$ {Number(meta).toFixed(2)}</p>) : 
+        (
+          <div className='noMeta'>
+            <p>You currently dont have any meta!</p>
+            <button onClick={()=>{setNewMeta(true)}}>Create a new meta</button>
+          </div>
+        )}
       </strong>
       { reached && <p>You've reached this month's sales meta!</p> }
-      <AiTwotoneEdit onClick={()=>{setNewMeta(true)}} />
+      {localMeta && <AiTwotoneEdit onClick={()=>{setNewMeta(true)}} />}
+      <ToastContainer />
     </div>
   );
 }

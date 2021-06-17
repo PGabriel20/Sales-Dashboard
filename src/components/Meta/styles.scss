@@ -13,6 +13,7 @@
   strong{
     font-size: 16px;
     color: #28a745;
+
   }
 
   svg{
@@ -22,5 +23,30 @@
     font-size: 23px;
     
     cursor: pointer;
+  }
+}
+
+.noMeta{
+  >p{
+    font-size: 13px;
+    font-weight: 400;
+
+    color: var(--gray);
+  }
+
+  >button{
+    margin-top: 0.5rem;
+    padding: 6px 10px;
+
+    background: var(--alt-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 2px;
+
+    transition: .3s all;
+
+    &:hover{
+      background-color: #2b8a7f;
+    }
   }
 }
