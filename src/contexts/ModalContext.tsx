@@ -13,6 +13,8 @@ type ModalContextData = {
   // variables for the meta modal
   newMeta: boolean;
   setNewMeta: (state: boolean) => void;
+  createdMeta: boolean;
+  setCreatedMeta: (state: boolean) => void;
 }
 
 export const ModalContext = createContext({} as ModalContextData);
@@ -24,6 +26,7 @@ export const ModalProvider = (props: any) => {
   const [type, setType] = useState('');
   
   const [newMeta, setNewMeta] = useState(false);
+  const [createdMeta, setCreatedMeta] = useState(false);
   
 
   return  (
@@ -32,7 +35,8 @@ export const ModalProvider = (props: any) => {
         isOpen, setIsOpen,
         id, setId,
         type, setType,
-        newMeta, setNewMeta
+        newMeta, setNewMeta,
+        createdMeta, setCreatedMeta
       }}>
       {props.children}
     </ModalContext.Provider>
