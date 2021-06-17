@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from "react-chartjs-2";
+import { VscRefresh } from "react-icons/vsc";
 import api from '../../services/api';
 
 import './styles.scss';
@@ -16,10 +17,9 @@ interface SalesData {
 const SalesChart: React.FC = () => {
   const [sales, setSales] = useState([])
   const [chartData, setChartData] = useState<any>()
-  const [loading, setLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(()=>{
-    setLoading(true);
     async function getData(){
       await api.get('/sale').then((res)=>{
         const data = res.data;
@@ -30,9 +30,9 @@ const SalesChart: React.FC = () => {
     }
     getData();
 
-    setTimeout(()=>{
-      getSalesByMonth();
-    },2000)
+    // setTimeout(()=>{
+    //   getSalesByMonth();
+    // },2000)
   },[])
   
   async function getSalesByMonth(){
@@ -158,10 +158,23 @@ const SalesChart: React.FC = () => {
     }
   }
 
+  const rotateIconRight = {
+    transform: 'rotate(60deg)',
+  }
+
+  const rotateIconLeft = {
+    transform: 'rotate(-300deg)',
+  }
+
+  useEffect(()=>{
+    getSalesByMonth();
+  },[refresh])
+
   return(
     <div className="chartContainer">
-      <div>
-        <h3 onClick={getSalesByMonth}>Sales</h3>
+      <div className='chartHeader'>
+        <h3>Sales</h3>
+        <VscRefresh style={refresh? rotateIconLeft: rotateIconRight} onClick={()=>setRefresh(!refresh)}/>
       </div>
       <Line type={options.type} width={920} height={300} data = {data} options={options} />
     </div>
