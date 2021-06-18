@@ -181,14 +181,6 @@ const SalesChart: React.FC = () => {
     }
   }
 
-  const rotateIconRight = {
-    transform: 'rotate(-360deg)',
-  }
-
-  // const rotateIconLeft = {
-  //   transform: 'rotate(-300deg)',
-  // }
-
   useEffect(()=>{
     getSalesByMonth();
   },[refresh])
