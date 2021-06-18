@@ -6,6 +6,8 @@
   width: 970px;
   height: 370px;
 
+  padding-bottom: 27px;
+
   background: var(--secondary);
 }
 
@@ -30,4 +32,13 @@
 
     transition: .25s all;
   }
+}
+
+.chartContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from "react-chartjs-2";
+import ReactLoading from 'react-loading';
 import { VscRefresh } from "react-icons/vsc";
 import api from '../../services/api';
 
@@ -18,6 +19,7 @@ const SalesChart: React.FC = () => {
   const [sales, setSales] = useState([])
   const [chartData, setChartData] = useState<any>()
   const [refresh, setRefresh] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(()=>{
     async function getData(){
@@ -29,11 +31,20 @@ const SalesChart: React.FC = () => {
       })
     }
     getData();
+    getSalesByMonth();
 
-    // setTimeout(()=>{
-    //   getSalesByMonth();
-    // },2000)
-  },[])
+    // If no data is avaliable, loading will occur
+    if(!sales || !chartData){
+      setLoading(true);
+      setInterval(()=>{
+        setRefresh(!refresh)
+      },2000)
+    }
+    else{
+      setLoading(false);
+    }
+
+  },[refresh])
   
   async function getSalesByMonth(){
     var Year = new Date().getFullYear().toString();
@@ -186,9 +197,14 @@ const SalesChart: React.FC = () => {
     <div className="chartContainer">
       <div className='chartHeader'>
         <h3>Sales</h3>
-        <VscRefresh style={refresh?undefined:rotateIconRight} onClick={()=>setRefresh(!refresh)}/>
       </div>
-      <Line type={options.type} width={930} height={315} data = {data} options={options} />
+      <div className='chartContent'>
+        { loading ? (
+          <ReactLoading type={'bars'} color={'#29b6a3'} height={60} width={60} />
+        ) : (
+          <Line type={options.type} width={915} height={315} data = {data} options={options} />
+        )}
+      </div>
     </div>
   );
 }
