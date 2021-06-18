@@ -66,7 +66,7 @@ const Meta: React.FC<MetaData> = ({profit}) => {
         (<p>$ {Number(meta).toFixed(2)}</p>) : 
         (
           <div className='noMeta'>
-            <p>You currently dont have any meta!</p>
+            <p>You currently dont have any metas!</p>
             <button onClick={()=>{setNewMeta(true)}}>Create a new meta</button>
           </div>
         )}
