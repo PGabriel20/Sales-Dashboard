@@ -113,13 +113,13 @@ const SalesChart: React.FC = () => {
     })
 
     setChartData(arraySales);
-    console.log(chartData )
+    // console.log(chartData );
   }
 
   const months = ["Jan", "Feb", "Mar", "Aprl", "May", "Jun", "Jul", "aug", "Sep", "Oct", "Nov", "Dec"]
 
   var month = new Date().getMonth();
-  console.log(`${month}`)
+  // console.log(`${month}`)
 
   const data ={
     labels: months.slice(0, (month)+1),

@@ -10,8 +10,7 @@ const MetaModal: React.FC = () => {
   const [savedMeta, setSavedMeta] = useState(0);
 
   const {
-    setNewMeta, setCreatedMeta,
-    createdMeta
+    setNewMeta, setCreatedMeta
   } = useContext(ModalContext);
 
   useEffect(()=>{

@@ -185,7 +185,7 @@ const SalesForm: React.FC = () => {
           <select style={errors.costumerError ? errorStyle:undefined} id="costumer" value={costumer} onChange={(e) => { setCostumer(e.target.value) }}>
             <option style={{color:'#c2c2c9'}} value="#">Select a costumer</option>
             {costumers.map((costumer:CostumerData)=>{
-              return (<option value={costumer._id}>{costumer.name}</option>)
+              return (<option key={costumer._id} value={costumer._id}>{costumer.name}</option>)
             })}
           </select>
           <fieldset>

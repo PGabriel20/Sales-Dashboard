@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaChartBar, FaClipboardList, FaCalendarAlt, FaUser } from "react-icons/fa";
-import { HiDocumentAdd, HiUsers, HiUserAdd } from "react-icons/hi";
+import { HiUsers } from "react-icons/hi";
 import { format} from 'date-fns';
 
 import './styles.scss';
