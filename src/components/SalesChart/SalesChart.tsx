@@ -113,7 +113,6 @@ const SalesChart: React.FC = () => {
     })
 
     setChartData(arraySales);
-    // console.log(chartData );
   }
 
   const months = ["Jan", "Feb", "Mar", "Aprl", "May", "Jun", "Jul", "aug", "Sep", "Oct", "Nov", "Dec"]
@@ -147,14 +146,25 @@ const SalesChart: React.FC = () => {
       display: true,
       text: 'Chart.js Line Chart'
     },
-    scales:{
-      yAxes:[{
-        ticks:{
-          min: 0,
-          beginAtZero: true,
-          stepSize: 1,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Months'
         }
-      }]
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Sales'
+        },
+        min: 0,
+        max: 20,
+        ticks: {
+          // forces step size to be 5 units
+          stepSize: 5
+        }
+      }
     }
   }
 
@@ -176,7 +186,7 @@ const SalesChart: React.FC = () => {
         <h3>Sales</h3>
         <VscRefresh style={refresh? rotateIconLeft: rotateIconRight} onClick={()=>setRefresh(!refresh)}/>
       </div>
-      <Line type={options.type} width={920} height={300} data = {data} options={options} />
+      <Line type={options.type} width={930} height={315} data = {data} options={options} />
     </div>
   );
 }
