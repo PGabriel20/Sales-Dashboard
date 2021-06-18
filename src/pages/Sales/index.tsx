@@ -88,10 +88,10 @@ const Sales: React.FC = () => {
         {sales.length > 0 ?(
           latest
           ? sales.slice(0).reverse().map((sale: SalesData)=>{
-              return <SaleCard _id={sale._id} key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
+              return <SaleCard _id={sale._id} key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'dd/MM/yyyy')} />
             })
           : sales.map((sale: SalesData)=>{
-              return <SaleCard _id={sale._id} key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'MM/dd/yyyy')} />
+              return <SaleCard _id={sale._id} key={sale._id} item={sale.product} price={sale.price} date={format(new Date(sale.date),'dd/MM/yyyy')} />
             })
         ):(
           <h4>
