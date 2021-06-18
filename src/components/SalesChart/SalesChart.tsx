@@ -36,9 +36,11 @@ const SalesChart: React.FC = () => {
   },[])
   
   async function getSalesByMonth(){
+    var Year = new Date().getFullYear().toString();
+
     const months = [
-      "2021-01-01", "2021-02-01", "2021-03-01", "2021-04-01", "2021-05-01", "2021-06-01",
-      "2021-07-01", "2021-08-01", "2021-09-01", "2021-10-01", "2021-11-01", "2021-12-01"
+      `${Year}-01-01`, `${Year}-02-01`, `${Year}-03-01`, `${Year}-04-01`, `${Year}-05-01`, `${Year}-06-01`,
+      `${Year}-07-01`, `${Year}-08-01`, `${Year}-09-01`, `${Year}-10-01`, `${Year}-11-01`, `${Year}-12-01`
     ];
 
     var salesPerMonth = [];
@@ -169,12 +171,12 @@ const SalesChart: React.FC = () => {
   }
 
   const rotateIconRight = {
-    transform: 'rotate(60deg)',
+    transform: 'rotate(-360deg)',
   }
 
-  const rotateIconLeft = {
-    transform: 'rotate(-300deg)',
-  }
+  // const rotateIconLeft = {
+  //   transform: 'rotate(-300deg)',
+  // }
 
   useEffect(()=>{
     getSalesByMonth();
@@ -184,7 +186,7 @@ const SalesChart: React.FC = () => {
     <div className="chartContainer">
       <div className='chartHeader'>
         <h3>Sales</h3>
-        <VscRefresh style={refresh? rotateIconLeft: rotateIconRight} onClick={()=>setRefresh(!refresh)}/>
+        <VscRefresh style={refresh?undefined:rotateIconRight} onClick={()=>setRefresh(!refresh)}/>
       </div>
       <Line type={options.type} width={930} height={315} data = {data} options={options} />
     </div>
