@@ -45,15 +45,18 @@ const Meta: React.FC<MetaData> = ({profit}) => {
       setReached(false);
     }
 
+  },[metaTimer])
+  
+  useEffect(()=>{
     if(createdMeta){
       notify('success', 'New meta created successfully!');
       setCreatedMeta(false);
     }
-  },[metaTimer, createdMeta])
+  },[createdMeta])
 
   setInterval(()=>{
     setMetaTimer(!metaTimer)
-  },3000)
+  },2000)
 
   return (
     <div className='meta'>
