@@ -28,11 +28,11 @@ const Meta: React.FC<MetaData> = ({profit}) => {
 
   useEffect(()=>{
     const savedMeta = localStorage.getItem('meta');
-    console.log(reached);
     if(savedMeta){
       setLocalMeta(true);
       setMeta(Number(savedMeta));
       
+      // Check if meta has been reached
       if(profit > Number(savedMeta)){
         setReached(true);
       }
@@ -43,9 +43,7 @@ const Meta: React.FC<MetaData> = ({profit}) => {
     else{
       setLocalMeta(false);
       setReached(false);
-      // Check if meta has been reached
     }
-
 
     if(createdMeta){
       notify('success', 'New meta created successfully!');
