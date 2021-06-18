@@ -47,12 +47,14 @@ const Landing: React.FC = () => {
   return (
     <div className='landingWrapper'>
       <Header title="Dashboard"/>
-      <div className='cards'>
-        <Profit profit={totalProfit} />
-        <Stock totalSales={totalSales} />
-        <Meta profit={totalProfit}/>
+      <div className='dataWrapper'>
+        <div className='cards'>
+          <Profit profit={totalProfit} />
+          <Stock totalSales={totalSales} />
+          <Meta profit={totalProfit}/>
+        </div>
+        <SalesChart />
       </div>
-      <SalesChart />
       { newMeta && <MetaModal/> }
     </div>
   );

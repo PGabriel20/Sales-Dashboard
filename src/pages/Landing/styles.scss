@@ -16,4 +16,13 @@
 .cards{
   display: flex;
   gap: 1rem;
+  max-height: 120px;
+}
+
+.dataWrapper{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  height: 100%;
+  max-height: 510px;
 }
