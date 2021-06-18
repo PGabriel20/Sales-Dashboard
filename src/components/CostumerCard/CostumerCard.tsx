@@ -31,7 +31,6 @@ const CostumerCard: React.FC<CostumerData> = ({_id, name, telephone, address, ob
       <span>Name: {name}</span>
       <strong>Phone: {telephone}</strong>
       <strong>Address: {address}</strong>
-      {observation && <span>Observations: {observation}</span>}
       <div className='icons'>
         <a href="#"><AiFillDelete className='deleteSale' onClick={()=>{handleModalData(_id, true, 'customers')}}/></a>
         <a href={`/RegisterCostumer/${_id}`}><AiFillEdit className='editSale'/></a>

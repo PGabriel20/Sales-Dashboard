@@ -28,6 +28,16 @@
     font-weight: 500;
   }
 
+  :nth-child(3){
+    position: absolute;
+    left: 350px;
+  }
+
+  :nth-child(4){
+    position: absolute;
+    left: 560px;
+  }
+
 }
 
 .bar{
