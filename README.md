@@ -1,5 +1,5 @@
 <h1>Sales Dashboard</h1>
-<p>Dashboard designed to small businesses that allows the user to have control over his sales, customers and suppliers. Providing them with a chart of all the sales on each month up ultil the current date, as well as a card with all the profit generated on that month, also allowing the user to set sales meta/p>
+<p>Dashboard designed to small businesses that allows the user to have control over his sales, customers and suppliers. Providing them with a chart of all the sales on each month up ultil the current date, as well as a card with all the profit generated on that month, also allowing the user to set sales meta</p>
 
 <h3>Project still in development</h3>
 
