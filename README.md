@@ -10,6 +10,8 @@
   <br>
 - [x] Sales chart
   <br>
+  
+  <h3>Future todo's: <h5>
 - [ ] Supplier control
   <br>
 - [ ] User authentication
