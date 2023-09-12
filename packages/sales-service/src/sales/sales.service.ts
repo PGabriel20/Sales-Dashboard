@@ -30,6 +30,6 @@ export class SalesService {
 
   async getSales(): Promise<Array<SaleDto>> {
     //@TODO - handle pagination
-    return await this.prisma.sale.findMany()
+    return await this.prisma.sale.findMany({orderBy: {createdAt: 'asc'}})
   }
 }
