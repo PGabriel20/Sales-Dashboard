@@ -1,4 +1,13 @@
 services:
+  sales-service:
+    container_name: sales-service
+    build:
+      context: ./packages/sales-service
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
   postgres:
     image: postgres
     container_name: postgres
