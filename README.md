@@ -1,14 +1,14 @@
 <h1>Sales Dashboard</h1>
-<p>Dashboard designed for small businesses that allows the user to have control over his sales, customers and suppliers. Providing them with a chart of all the sales on each month up ultil the current date, as well as a card with all the profit generated on that month, the app also allows the user to set sales meta, alerting the user when a meta is reached.</p>
+<p>Dashboard designed for small businesses that allows the user to have control over his sales, customers and suppliers. Providing them with a chart of all the sales on each month up ultil the current date, as well as a card with all the profit generated on that month, the app also allows the user to set sales goal, alerting the user when a goal is reached.</p>
 
 
-This Project is being refactored in the branch [feature/prototype](https://github.com/PGabriel20/Sales-Dashboard/tree/prototype)
+### This Project is being refactored in the branch [feature/prototype](https://github.com/PGabriel20/Sales-Dashboard/tree/prototype)
 
 
 ----------------------------
 
 
-<h3>Features (deprecated): <h5>
+#### Features (deprecated):
 - [x] Sales control
   <br>
 - [x] Customers control
