@@ -5,7 +5,7 @@
 ### This Project is being refactored in the branch [feature/prototype](https://github.com/PGabriel20/Sales-Dashboard/tree/prototype)
 
 
-----------------------------
+-----------------------------
 
 
 #### Features (deprecated):
